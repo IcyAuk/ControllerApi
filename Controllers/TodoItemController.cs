@@ -9,7 +9,7 @@ using TodoApi.Models;
 
 namespace ControllerApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]")] //[controller] remvoes "controller" from string. case insensitive
     [ApiController]
     public class TodoItemController : ControllerBase
     {
@@ -28,7 +28,7 @@ namespace ControllerApi.Controllers
         }
 
         // GET: api/TodoItem/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}")] //capture next segment after controller route [controller]
         public async Task<ActionResult<TodoItem>> GetTodoItem(long id)
         {
             var todoItem = await _context.TodoItems.FindAsync(id);
